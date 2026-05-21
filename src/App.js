@@ -18,6 +18,11 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
+  const searchedTodos = todos.filter(todo => {
+    const todoText = todo.text.toLowerCase();
+    const searchText = searchValue.toLowerCase();
+    return todoText.includes(searchText);
+  });
 
   return (
     <>
@@ -31,7 +36,7 @@ function App() {
         setSearchValue={setSearchValue}
       />
       <TodoList>
-        {todos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem 
             key={todo.text} 
             text={todo.text} 
