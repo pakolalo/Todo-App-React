@@ -1,6 +1,11 @@
+import './TodoSearch.css'
+
 function TodoSearch() {
   return (
-    <input placeholder="Cortar el pasto" />
+    <input 
+    className="TodoSearch"
+    placeholder="Cortar el pasto"
+    onChange={(event) => {}} />
   );
 }
 
