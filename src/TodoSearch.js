@@ -10,9 +10,7 @@ import './TodoSearch.css'
  *
  * @returns {JSX.Element} A controlled text field for searching todos.
  */
-function TodoSearch() {
-  const [searchValue, setSearchValue] = React.useState('');
-
+function TodoSearch({searchValue, setSearchValue}) {
   return (
     <input
       className="TodoSearch"
