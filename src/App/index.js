@@ -1,10 +1,11 @@
 import React from 'react';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoCounter } from './TodoCounter';
-import { TodoItem } from './TodoItem';
-import { TodoList } from './TodoList';
-import { TodoSearch } from './TodoSearch';
-import { TodoTitle } from './TodoTitle';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { TodoCounter } from '../TodoCounter';
+import { TodoItem } from '../TodoItem';
+import { TodoList } from '../TodoList';
+import { TodoSearch } from '../TodoSearch';
+import { TodoTitle } from '../TodoTitle';
+import { useLocalStorage } from './useLocalStorage';
 
 // const defaultTodos = [
 //   { text: 'Go to the gym', completed: true },
@@ -14,30 +15,8 @@ import { TodoTitle } from './TodoTitle';
 // ];
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
 
-function useLocalSorage(itemName, initialValue) {
-  const localStorageItems = localStorage.getItem(itemName);
-
-  let parsedItems;
-
-  if (!localStorageItems) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItems = initialValue;
-  } else {
-    parsedItems = JSON.parse(localStorageItems);
-  }
-
-  const [item, setItem] = React.useState(parsedItems);
-
-  const saveItem = (newItem) => {
-  localStorage.setItem(itemName, JSON.stringify(newItem));
-  setItem(newItem);
-};
-
-  return [item, saveItem];
-}
-
 function App() {
-  const [todos, saveTodos] = useLocalSorage('TODOS_V1', []);
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
