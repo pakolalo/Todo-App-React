@@ -3,7 +3,12 @@ import { AppUI } from './AppUI';
 import { useLocalStorage } from './useLocalStorage';
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+  const { 
+    error,
+    loading,
+    item: todos,
+    saveItem: saveTodos,
+  } = useLocalStorage('TODOS_V1', []);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -32,12 +37,14 @@ function App() {
   return (
     <AppUI 
       completedTodos={completedTodos}
-      totalTodos={totalTodos}
-      searchValue={searchValue}
-      setSearchValue={setSearchValue}
-      searchedTodos={searchedTodos}
       completeTodo={completeTodo}
       deleteTodo={deleteTodo}
+      error={error}
+      loading={loading}
+      searchedTodos={searchedTodos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      totalTodos={totalTodos}
     />
   );
 }
