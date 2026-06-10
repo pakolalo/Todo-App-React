@@ -27,7 +27,7 @@ A modern todo application built with React.
 git clone <repository-url>
 
 # Navigate to the project directory
-cd curso-react-intro
+cd Todo-app-React
 
 # Install dependencies
 npm install
