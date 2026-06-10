@@ -1,3 +1,5 @@
+import React from 'react';
+import { TodoContext } from '../TodoContext';
 import './TodoCounter.css';
 
 /**
@@ -10,12 +12,15 @@ import './TodoCounter.css';
  * @param {number} props.completed The number of completed todos.
  * @returns {JSX.Element} A heading showing completed and total todo counts.
  */
-function TodoCounter({ total, completed }) {
+function TodoCounter() {
+  const { totalTodos, completedTodos } = React.useContext(TodoContext);
   return (
-    total === completed
+    totalTodos === 0
+    ? <h2 className="TodoCounter">Loading...</h2>
+    : totalTodos === completedTodos
     ? <h2 className="TodoCounter">Congratulations! You've completed all your TODOS!</h2>
     :
-    <h2 className="TodoCounter">You have completed <span>{completed}</span> of <span>{total}</span> TODOS</h2>
+    <h2 className="TodoCounter">You have completed <span>{completedTodos}</span> of <span>{totalTodos}</span> TODOS</h2>
   );
 }
 

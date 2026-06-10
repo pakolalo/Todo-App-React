@@ -1,4 +1,5 @@
 import React from 'react';
+import { TodoContext } from '../TodoContext';
 import './TodoSearch.css';
 
 /**
@@ -10,7 +11,8 @@ import './TodoSearch.css';
  *
  * @returns {JSX.Element} A controlled text field for searching todos.
  */
-function TodoSearch({searchValue, setSearchValue}) {
+function TodoSearch() {
+  const { searchValue, setSearchValue } = React.useContext(TodoContext);
   return (
     <input
       className="TodoSearch"
