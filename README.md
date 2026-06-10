@@ -1,52 +1,140 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# React Todo List App
 
-¡Hola, Platzinauta!
+A modern todo application built with React.
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
+## 📋 Features
 
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
+- ✅ **Create Todos** - Add new tasks to your todo list
+- 🔍 **Search & Filter** - Find todos by typing keywords
+- ✔️ **Mark Complete** - Toggle todo completion status
+- 🗑️ **Delete Todos** - Remove completed or unwanted tasks
+- 💾 **Persistent Storage** - Todos are saved to localStorage
+- 📊 **Progress Counter** - View how many todos you've completed
+- ⚡ **Loading State** - Skeleton UI while data loads
+- 🎨 **Modal Dialog** - Create new todos in a clean modal interface
 
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
+## 🚀 Getting Started
 
-## Getting Started with Create React App
+### Prerequisites
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Node.js (v14 or higher)
+- npm or yarn
 
-## Available Scripts
+### Installation
 
-In the project directory, you can run:
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to the project directory
+cd curso-react-intro
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+## 📁 Project Structure
+
+```
+src/
+├── App/                    # Root app component and main UI
+├── CreateTodoButton/       # Button to open todo creation modal
+├── EmptyTodos/            # Component for empty state message
+├── Modal/                 # Modal portal component
+├── TodoContext/           # Global state management with Context API
+│   ├── index.js          # TodoProvider and TodoContext
+│   └── useLocalStorage.js # Custom hook for localStorage persistence
+├── TodoCounter/          # Component displaying completed/total todos count
+├── TodoForm/             # Form for creating new todos
+├── TodoIcon/             # Icon components (Complete & Delete)
+├── TodoItem/             # Individual todo item component
+├── TodoList/             # Container for todo items
+├── TodoSearch/           # Search input for filtering todos
+├── TodoTitle/            # Application title
+├── TodosError/           # Error state component
+└── TodosLoading/         # Loading skeleton component
+```
+
+## 📦 Available Scripts
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
+Runs the app in development mode.\
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
+The build is minified and filenames include hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🏗️ Architecture
 
-### `npm run eject`
+### State Management
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app uses **React Context API** for global state management:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **TodoProvider** - Manages all todo-related state
+- **useLocalStorage** - Custom hook for persisting todos to browser storage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Key Components
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Component | Purpose |
+|-----------|---------|
+| `AppUI` | Main interface layout and conditional rendering |
+| `TodoContext` | Global state and CRUD operations |
+| `useLocalStorage` | Data persistence layer |
+| `Modal` | Portal for dialogs |
+| `TodoForm` | New todo creation |
 
-## Learn More
+## 🛠️ Technologies Used
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **React 18** - UI library
+- **Context API** - State management
+- **localStorage** - Data persistence
+- **CSS3** - Styling
+
+## 📝 Usage
+
+1. **Add a Todo** - Click the `+` button to open the modal and enter your task
+2. **Search** - Use the search input to filter todos
+3. **Complete** - Click the check icon to mark a todo as complete
+4. **Delete** - Click the trash icon to remove a todo
+5. **View Progress** - See your completion count at the top
+
+## 🎓 Learning Outcomes
+
+This project demonstrates:
+
+- Component composition and reusability
+- React Hooks (useState, useEffect, useContext)
+- Custom hooks development
+- Context API for state management
+- Event handling and form management
+- Conditional rendering
+- List rendering with keys
+- LocalStorage integration
+- CSS styling best practices
+
+## 📚 Resources
+
+- [React Documentation](https://react.dev)
+- [Create React App Docs](https://facebook.github.io/create-react-app)
+
+## 💡 Notes
+
+- Todos are automatically saved to localStorage
+- There's a 2-second simulated delay when loading data (for UX demonstration)
+- The search is case-insensitive
+
+---
+
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 

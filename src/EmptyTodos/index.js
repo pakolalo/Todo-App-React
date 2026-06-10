@@ -3,15 +3,17 @@ import React from 'react';
 /**
  * EmptyTodos
  *
- * Search component inside the todo application.
- * Keeps local state `searchValue` and updates it
- * when the user types in the input.
+ * Displays a message when there are no todos to show.
+ * Shows "Searching..." when the user is filtering todos,
+ * or "Create your first todo!" when the list is empty.
  *
- * @returns {JSX.Element} A controlled text field for searching todos.
+ * @param {Object} props - Component props
+ * @param {string} props.searchValue - The current search input value
+ * @returns {JSX.Element} A message indicating no todos found or to create one.
  */
-function EmptyTodos() {
+function EmptyTodos({ searchValue }) {
   return (
-    <p>Create your first todo!</p>
+    <p>{searchValue ? 'No todos found' : 'Create your first todo!'}</p>
   );
 }
 

@@ -5,11 +5,10 @@ import './TodoSearch.css';
 /**
  * TodoSearch
  *
- * Search component inside the todo application.
- * Keeps local state `searchValue` and updates it
- * when the user types in the input.
+ * Input component that filters todos by search query.
+ * Updates the global search value in context as the user types.
  *
- * @returns {JSX.Element} A controlled text field for searching todos.
+ * @returns {JSX.Element} A controlled text input field for searching todos.
  */
 function TodoSearch() {
   const { searchValue, setSearchValue } = React.useContext(TodoContext);

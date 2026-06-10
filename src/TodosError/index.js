@@ -3,11 +3,9 @@ import React from 'react';
 /**
  * TodosError
  *
- * Search component inside the todo application.
- * Keeps local state `searchValue` and updates it
- * when the user types in the input.
+ * Displays an error message when data fails to load from localStorage.
  *
- * @returns {JSX.Element} A controlled text field for searching todos.
+ * @returns {JSX.Element} Error message text.
  */
 function TodosError() {
   return (

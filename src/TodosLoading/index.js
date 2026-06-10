@@ -4,11 +4,10 @@ import './TodosLoading.css';
 /**
  * TodosLoading
  *
- * Search component inside the todo application.
- * Keeps local state `searchValue` and updates it
- * when the user types in the input.
+ * Skeleton loading component that displays a placeholder while todos are loading.
+ * Shows animated skeleton elements mimicking the structure of a real todo item.
  *
- * @returns {JSX.Element} A controlled text field for searching todos.
+ * @returns {JSX.Element} A loading placeholder with skeleton UI elements.
  */
 function TodosLoading() {
   return (
